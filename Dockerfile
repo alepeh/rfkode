@@ -3,7 +3,9 @@ LABEL maintainer "Alexander Pehm <alexander@alexanderpehm.at>"
 
 RUN apk add --no-cache nodejs npm
 
-COPY server ./
+COPY . ./
 RUN npm install
+RUN cd server && npm install
+WORKDIR server
 EXPOSE 8080
 ENTRYPOINT ["npm","run","start"]
