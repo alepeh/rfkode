@@ -4,7 +4,7 @@ LABEL maintainer "Alexander Pehm <alexander@alexanderpehm.at>"
 RUN apk add --no-cache nodejs npm
 
 COPY . ./
-RUN npm install
+RUN npm install && npm build
 RUN cd server && npm install
 WORKDIR server
 EXPOSE 8080
